@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kanbanapp2/screens/screens.dart';
+import 'package:kanbanapp2/shared/shared.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         home: Scaffold(
           body: SafeArea(
-            child: SprintScreen(),
+            child: BottomNavBarManager(),
           ),
         ));
   }
