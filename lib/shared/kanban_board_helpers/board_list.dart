@@ -1,5 +1,5 @@
-import 'package:kanbanapp2/board_item.dart';
-import 'package:kanbanapp2/boardview.dart';
+import 'package:kanbanapp2/shared/kanban_board_helpers/board_item.dart';
+import 'package:kanbanapp2/shared/kanban_board_helpers/boardview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

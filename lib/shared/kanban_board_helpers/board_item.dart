@@ -1,4 +1,4 @@
-import 'package:kanbanapp2/board_list.dart';
+import 'package:kanbanapp2/shared/kanban_board_helpers/board_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
