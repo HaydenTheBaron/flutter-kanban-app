@@ -12,9 +12,10 @@ class _SprintScreenState extends State<SprintScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     Text('Index 0: Reports'), // Reports Screen
-    Text('Index 1: Summits'), // Summits Screen
+    Text('Index 1: Whirlwind'), // Whirlwind Screen
     Text('Index 2: Backlog'), // Backlog Screen
-    KanbanBoard(), // Sprints Screen // TODO: refactor navigation bar logic outside of sprint_screen
+    Text('Index 2: Summits'), // Summits Screen
+    KanbanBoard(), // Sprint Screen // TODO: refactor navigation bar logic outside of sprint_screen
   ];
 
   void _onItemTapped(int index) {
@@ -39,14 +40,13 @@ class _SprintScreenState extends State<SprintScreen> {
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
           items: [
-            BottomNavigationBarItem(
-                label: 'Reports', icon: Icon(Icons.bar_chart)),
+            BottomNavigationBarItem(label: 'Reports', icon: Icon(Icons.bar_chart)),
+            BottomNavigationBarItem(label: 'Whirlwind', icon: Icon(Icons.wifi_protected_setup)),
+            BottomNavigationBarItem(label: 'Backlog', icon: Icon(Icons.assignment_return)),
             BottomNavigationBarItem(label: 'Summits', icon: Icon(Icons.flag)),
             BottomNavigationBarItem(
-                label: 'Backlog', icon: Icon(Icons.double_arrow_sharp)),
-            BottomNavigationBarItem(
                 label: 'Sprint',
-                icon: Icon(Icons.house),
+                icon: Icon(Icons.double_arrow_sharp),
                 backgroundColor: Color.fromRGBO(230, 230, 230, 1)),
           ],
         ),
