@@ -8,10 +8,9 @@ import 'package:kanbanapp2/shared/kanban_board_helpers/boardview.dart';
 class KanbanBoard extends StatefulWidget {
   KanbanBoard({Key key}) : super(key: key);
 
-  // TODO: should this be static?
 
-  static List<BoardListObject> _listData = [
-      // FIXME: Kanban board state isn't stable unless static (and I don't want static)
+  // TODO: initialize to empty list after adding create new task button
+  final List<BoardListObject> _listData = [
       BoardListObject(title: "To Do", items: <BoardItemObject>[
         BoardItemObject("board item object 1"),
       ]),
@@ -34,32 +33,14 @@ class _KanbanBoardState extends State<KanbanBoard> {
 
   BoardViewController boardViewController = BoardViewController();
 
-  @override
-  void initState() {
-    super.initState();
-    // KanbanBoard._listData = [
-    //   // FIXME: Kanban board state isn't stable unless static (and I don't want static)
-    //   BoardListObject(title: "To Do", items: <BoardItemObject>[
-    //     BoardItemObject("board item object 1"),
-    //   ]),
-    //   BoardListObject(title: "In Progress", items: <BoardItemObject>[
-    //     BoardItemObject("board item object 2"),
-    //   ]),
-    //   BoardListObject(title: "Waiting", items: <BoardItemObject>[
-    //     BoardItemObject("board item object 3"),
-    //   ]),
-    //   BoardListObject(title: "Done", items: <BoardItemObject>[
-    //     BoardItemObject("board item object 4"),
-    //   ]),
-    // ];
-  }
 
   @override
   Widget build(BuildContext context) {
     List<BoardList> _lists = [];
-    for (var listDatum in KanbanBoard._listData) {
+    for (var listDatum in widget._listData) {
       _lists.add(_createBoardList(listDatum));
     }
+
 
     return BoardView(
       lists: _lists,
@@ -77,9 +58,9 @@ class _KanbanBoardState extends State<KanbanBoard> {
       onStartDragList: (int listIndex) {},
       onTapList: (int listIndex) async {},
       onDropList: (int listIndex, int oldListIndex) {
-        var list = KanbanBoard._listData[oldListIndex];
-        KanbanBoard._listData.removeAt(oldListIndex);
-        KanbanBoard._listData.insert(listIndex, list);
+        var list = widget._listData[oldListIndex];
+        widget._listData.removeAt(oldListIndex);
+        widget._listData.insert(listIndex, list);
       },
       headerBackgroundColor: Color.fromRGBO(230, 230, 230, 1),
       backgroundColor: Color.fromRGBO(230, 230, 230, 1),
@@ -103,9 +84,9 @@ class _KanbanBoardState extends State<KanbanBoard> {
       onStartDragItem: (int listIndex, int itemIndex, BoardItemState state) {},
       onDropItem: (int listIndex, int itemIndex, int oldListIndex,
           int oldItemIndex, BoardItemState state) {
-        var item = KanbanBoard._listData[oldListIndex].items[oldItemIndex];
-        KanbanBoard._listData[oldListIndex].items.removeAt(oldItemIndex);
-        KanbanBoard._listData[listIndex].items.insert(itemIndex, item);
+        var item = widget._listData[oldListIndex].items[oldItemIndex];
+        widget._listData[oldListIndex].items.removeAt(oldItemIndex);
+        widget._listData[listIndex].items.insert(itemIndex, item);
       },
       onTapItem: (int listIndex, int itemIndex, BoardItemState state) async {},
       item: Card(
