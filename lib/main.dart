@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kanbanapp2/screens/screens.dart';
-import 'package:kanbanapp2/shared/shared.dart';
+import 'package:kanbanapp2/shared/bottom_nav_bar_manager.dart';
 
 void main() {
   runApp(MyApp());

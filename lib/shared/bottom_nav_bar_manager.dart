@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kanbanapp2/shared/kanban_board.dart';
 import 'package:kanbanapp2/screens/screens.dart';
+import 'package:kanbanapp2/shared/globals.dart';
 
 
 class BottomNavBarManager extends StatefulWidget {
@@ -12,12 +12,13 @@ class BottomNavBarManager extends StatefulWidget {
 
 class _BottomNavBarManagerState extends State<BottomNavBarManager> {
   int _selectedIndex = 0;
+
   static const List<Widget> _widgetOptions = <Widget>[
-    ReportsScreen(), 
-    WhirlwindScreen(),
-    BacklogScreen(),
-    SummitsScreen(),
-    SprintScreen(), 
+    Globals.reportsScreen, 
+    Globals.whirlwindScreen,
+    Globals.backlogScreen,
+    Globals.summitsScreen,
+    Globals.sprintScreen, 
   ];
 
   void _onItemTapped(int index) {

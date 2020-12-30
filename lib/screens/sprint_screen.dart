@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kanbanapp2/shared/kanban_board.dart';
+import 'package:kanbanapp2/shared/globals.dart';
 
 class SprintScreen extends StatelessWidget {
   const SprintScreen({Key key}) : super(key: key);
@@ -7,7 +7,7 @@ class SprintScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: KanbanBoard(),
+      child: Globals.sprintScreenBoard,
     );
   }
 }
