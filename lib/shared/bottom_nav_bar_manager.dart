@@ -13,10 +13,10 @@ class BottomNavBarManager extends StatefulWidget {
 class _BottomNavBarManagerState extends State<BottomNavBarManager> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 0: Reports'), 
-    Text('Index 1: Whirlwind'), 
-    Text('Index 2: Backlog'), 
-    Text('Index 3: Summits'), 
+    ReportsScreen(), 
+    WhirlwindScreen(),
+    BacklogScreen(),
+    SummitsScreen(),
     SprintScreen(), 
   ];
 
