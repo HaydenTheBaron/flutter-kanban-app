@@ -32,7 +32,7 @@ class KanbanBoard extends StatefulWidget {
 
 class _KanbanBoardState extends State<KanbanBoard> {
 
-  static BoardViewController boardViewController = BoardViewController();
+  BoardViewController boardViewController = BoardViewController();
 
   @override
   void initState() {
