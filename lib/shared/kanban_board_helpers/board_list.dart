@@ -19,6 +19,7 @@ class BoardList extends StatefulWidget {
   final OnStartDragList onStartDragList;
   final bool draggable;
 
+
   const BoardList({
     Key key,
     this.header,
@@ -107,14 +108,14 @@ class BoardListState extends State<BoardList> with AutomaticKeepAliveClientMixin
               _startDrag(widget, context);
             }
           },
-          child: Container(
+          child: Container( // Header
             color: widget.headerBackgroundColor,
             child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: widget.header),
+                children: widget.header,
+                ),
           )));
-
     }
     if (widget.items != null) {
       listWidgets.add(Container(
@@ -168,7 +169,7 @@ class BoardListState extends State<BoardList> with AutomaticKeepAliveClientMixin
     }
     widget.boardView.listStates.insert(widget.index, this);
 
-    return Container(
+    return Container( // List
         margin: EdgeInsets.all(8),
         decoration: BoxDecoration(color: backgroundColor),
         child: Column(
