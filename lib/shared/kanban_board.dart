@@ -6,23 +6,11 @@ import 'package:kanbanapp2/shared/kanban_board_helpers/board_item.dart';
 import 'package:kanbanapp2/shared/kanban_board_helpers/boardview.dart';
 
 class KanbanBoard extends StatefulWidget {
-  KanbanBoard({Key key}) : super(key: key);
 
-  // TODO: initialize to empty list after adding create new task button
-  final List<BoardListObject> _listData = [
-    BoardListObject(title: "To Do", items: <BoardItemObject>[
-      BoardItemObject("board item object 1"),
-    ]),
-    BoardListObject(title: "In Progress", items: <BoardItemObject>[
-      BoardItemObject("board item object 2"),
-    ]),
-    BoardListObject(title: "Waiting", items: <BoardItemObject>[
-      BoardItemObject("board item object 3"),
-    ]),
-    BoardListObject(title: "Done", items: <BoardItemObject>[
-      BoardItemObject("board item object 4"),
-    ]),
-  ];
+  final List<BoardListObject> _listData;
+
+  @override
+  KanbanBoard(this._listData, {Key key}) : super(key: key);
 
   @override
   _KanbanBoardState createState() => _KanbanBoardState();
@@ -30,7 +18,7 @@ class KanbanBoard extends StatefulWidget {
 
 class _KanbanBoardState extends State<KanbanBoard> {
   var boardViewController =
-      BoardViewController(); // TODO: can I make this final?
+      BoardViewController(); 
 
   var titleCreateCardTextFormFieldController = TextEditingController();
 
