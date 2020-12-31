@@ -54,7 +54,7 @@ class _KanbanBoardState extends State<KanbanBoard> {
       headerBackgroundColor: Color.fromRGBO(210, 210, 210, 1),
       backgroundColor: Color.fromRGBO(210, 210, 210, 1),
       header: [
-        // Header of BoardList // BKMRK
+        // Header of BoardList
         Expanded(
           child: Wrap(
             children: [
@@ -162,9 +162,7 @@ class _KanbanBoardState extends State<KanbanBoard> {
                               ),
                             );
                           });
-
-                      // BKMRK
-                    }, // TODO: Implement edit column label logic
+                    },
                   ),
                   FlatButton(
                     child: Icon(
@@ -187,14 +185,19 @@ class _KanbanBoardState extends State<KanbanBoard> {
                                         color: Colors.lightGreen,
                                         child: Text('Yes'),
                                         onPressed: () {
-                                          // TODO: implement
+                                          setState(
+                                            () {
+                                              list.items = <BoardItemObject>[];
+                                            },
+                                          );
+                                          Navigator.pop(context);
                                         },
                                       ),
                                       RaisedButton(
                                         color: Colors.red,
                                         child: Text('No'),
                                         onPressed: () {
-                                          // TODO: implement
+                                          Navigator.pop(context);
                                         },
                                       )
                                     ],
