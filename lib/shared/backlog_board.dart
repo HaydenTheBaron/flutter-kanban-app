@@ -13,5 +13,7 @@ class BacklogBoard extends KanbanBoard {
           BoardListObject(title: "Someday", items: <BoardItemObject>[
             BoardItemObject("bl object 3"),
           ]),
+          BoardListObject(title: "TRASH", items: <BoardItemObject>[
+          ]),
         ], key: key);
 }

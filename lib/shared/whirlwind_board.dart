@@ -14,5 +14,8 @@ class WhirlwindBoard extends KanbanBoard {
           BoardListObject(title: "Low Priority", items: <BoardItemObject>[
             BoardItemObject("w item object 3"),
           ]),
+          BoardListObject(title: "TRASH", items: <BoardItemObject>[
+          ]),
+
         ], key: key);
 }

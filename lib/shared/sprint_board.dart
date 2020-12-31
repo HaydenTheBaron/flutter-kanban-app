@@ -15,6 +15,10 @@ class SprintBoard extends KanbanBoard {
           ]),
           BoardListObject(title: "Done", items: <BoardItemObject>[
             BoardItemObject("board item object 4"),
+          ]),
+          BoardListObject(title: "TRASH", items: <BoardItemObject>[
+            BoardItemObject("board item object 4"),
           ])
+
         ], key: key);
 }

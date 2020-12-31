@@ -12,6 +12,8 @@ class SummitsBoard extends KanbanBoard {
           BoardListObject(title: "Summit 3", items: <BoardItemObject>[
           ]),
           BoardListObject(title: "Summit 4", items: <BoardItemObject>[
-          ])
+          ]),
+          BoardListObject(title: "TRASH", items: <BoardItemObject>[
+          ]),
         ], key: key);
 }
