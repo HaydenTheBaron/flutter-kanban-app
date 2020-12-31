@@ -10,7 +10,7 @@ class SprintScreen extends StatelessWidget {
       backgroundColor: Color.fromRGBO(247, 247, 247, 1),
       appBar: AppBar(
         title: Text('Sprint'),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.pink,
       ),
       body: Globals.sprintScreenBoard,
     );

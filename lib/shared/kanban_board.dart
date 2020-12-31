@@ -7,7 +7,6 @@ import 'package:kanbanapp2/shared/kanban_board_helpers/board_item.dart';
 import 'package:kanbanapp2/shared/kanban_board_helpers/boardview.dart';
 
 class KanbanBoard extends StatefulWidget {
-
   final List<BoardListObject> _listData;
 
   @override
@@ -18,8 +17,7 @@ class KanbanBoard extends StatefulWidget {
 }
 
 class _KanbanBoardState extends State<KanbanBoard> {
-  var boardViewController =
-      BoardViewController(); 
+  var boardViewController = BoardViewController();
 
   var titleCreateCardTextFormFieldController = TextEditingController();
 
@@ -75,97 +73,141 @@ class _KanbanBoardState extends State<KanbanBoard> {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              Align(
-                alignment: Alignment.center,
-                child: FlatButton(
-                  minWidth: 20,
-                  onPressed: () {
-                    // TODO: factor this logic out into its own method
+              Row(
+                children: [
+                  FlatButton(
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.grey,
+                    ),
+                    minWidth: 20,
+                    onPressed: () {
+                      // TODO: factor this logic out into its own method
 
-                    /* TODO: jump to a new screen where we fill out a simple form to create a task. When the form
-                    is submitted, we jump back to original screen. (Or instead, try to overlay something)
-                     */
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              content: Stack(
+                                children: <Widget>[
+                                  Center(
+                                    child: Form(
+                                      key: _formKey,
+                                      child: Column(
+                                        children: [
+                                          TextFormField(
+                                            controller:
+                                                titleCreateCardTextFormFieldController,
+                                            validator: (value) {
+                                              if (value.isEmpty) {
+                                                return 'Please enter some text';
+                                              }
+                                              return null;
+                                            },
+                                          ),
+                                          DropdownButton(
+                                            // TODO: finish implementing velocity picker
+                                            // Velocity picker
+                                            onTap: () {
+                                              // TODO: Implement
+                                            },
+                                            items: [
+                                              DropdownMenuItem(
+                                                  child: Text('1')),
+                                              DropdownMenuItem(
+                                                  child: Text('2')),
+                                              DropdownMenuItem(
+                                                  child: Text('3')),
+                                            ],
+                                          ),
+                                          RaisedButton(
+                                            child: Text('Create card'),
+                                            onPressed: () {
+                                              if (_formKey.currentState
+                                                  .validate()) {
+                                                // FIXME: validation is not working. The form doen't enforce that title field needs to be filled
+                                                //   // FIXME: snack bar breaks everything
+                                                //   // Scaffold.of(context)
+                                                //   //     .showSnackBar(SnackBar(
+                                                //   //         backgroundColor:
+                                                //   //             Colors.red,
+                                                //   //         elevation: 100,
+                                                //   //         content: Text(
+                                                //   //             'Processing Data')));
+                                              }
 
-                    showDialog(
+                                              /* Use form data to construct new card */
+                                              setState(
+                                                () {
+                                                  list.items.add(
+                                                      BoardItemObject(this
+                                                          .titleCreateCardTextFormFieldController
+                                                          .value
+                                                          .text));
+
+                                                  // Blank out field for next time add button is clicked
+                                                  this.titleCreateCardTextFormFieldController =
+                                                      TextEditingController();
+                                                },
+                                              );
+
+                                              Navigator.pop(context);
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          });
+
+                      // BKMRK
+                    }, // TODO: Implement edit column label logic
+                  ),
+                  FlatButton(
+                    child: Icon(
+                      Icons.delete,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {
+                      showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            content: Stack(
-                              children: <Widget>[
+                            content: Column(
+                              children: [
+                                Text(
+                                    'Are you sure you want to delete all cards in this column?'),
                                 Center(
-                                  child: Form(
-                                    key: _formKey,
-                                    child: Column(
-                                      children: [
-                                        TextFormField(
-                                          controller:
-                                              titleCreateCardTextFormFieldController,
-                                          validator: (value) {
-                                            if (value.isEmpty) {
-                                              return 'Please enter some text';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                        DropdownButton( // TODO: finish implementing velocity picker
-                                          // Velocity picker
-                                          onTap: () {
-                                            // TODO: Implement
-                                          },
-                                          items: [
-                                            DropdownMenuItem(child: Text('1')),
-                                            DropdownMenuItem(child: Text('2')),
-                                            DropdownMenuItem(child: Text('3')),
-                                          ],
-                                        ),
-                                        RaisedButton(
-                                          child: Text('Create card'),
-                                          onPressed: () {
-                                            if (_formKey.currentState
-                                                .validate()) { // FIXME: validation is not working. The form doen't enforce that title field needs to be filled
-                                              //   // FIXME: snack bar breaks everything
-                                              //   // Scaffold.of(context)
-                                              //   //     .showSnackBar(SnackBar(
-                                              //   //         backgroundColor:
-                                              //   //             Colors.red,
-                                              //   //         elevation: 100,
-                                              //   //         content: Text(
-                                              //   //             'Processing Data')));
-                                            }
-
-                                            /* Use form data to construct new card */
-                                            setState(
-                                              () {
-                                                list.items.add(BoardItemObject(this
-                                                    .titleCreateCardTextFormFieldController
-                                                    .value
-                                                    .text));
-
-                                                // Blank out field for next time add button is clicked
-                                                this.titleCreateCardTextFormFieldController =
-                                                    TextEditingController();
-                                              },
-                                            );
-
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                      ],
-                                    ),
+                                  child: Row(
+                                    children: [
+                                      FlatButton(
+                                        color: Colors.lightGreen,
+                                        child: Text('Yes'),
+                                        onPressed: () {
+                                          // TODO: implement
+                                        },
+                                      ),
+                                      RaisedButton(
+                                        color: Colors.red,
+                                        child: Text('No'),
+                                        onPressed: () {
+                                          // TODO: implement
+                                        },
+                                      )
+                                    ],
                                   ),
                                 ),
                               ],
                             ),
                           );
-                        });
-
-                    // BKMRK
-                  }, // TODO: Implement edit column label logic
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.grey,
+                        },
+                      );
+                    },
                   ),
-                ),
+                ],
               )
             ],
           ),
