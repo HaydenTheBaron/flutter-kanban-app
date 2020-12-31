@@ -1,6 +1,7 @@
 import 'package:kanbanapp2/shared/sprint_board.dart';
 import 'package:kanbanapp2/shared/whirlwind_board.dart';
 import 'package:kanbanapp2/shared/summits_board.dart';
+import 'package:kanbanapp2/shared/backlog_board.dart';
 import 'package:kanbanapp2/screens/screens.dart';
 
 
@@ -9,6 +10,7 @@ class Globals {
   static var sprintScreenBoard = SprintBoard();
   static var whirlwindScreenBoard = WhirlwindBoard();
   static var summitsScreenBoard = SummitsBoard();
+  static var backlogScreenBoard = BacklogBoard();
   // TODO: add summit board
 
   // Screens

@@ -11,7 +11,7 @@ class BottomNavBarManager extends StatefulWidget {
 }
 
 class _BottomNavBarManagerState extends State<BottomNavBarManager> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 4;
 
   static const List<Widget> _widgetOptions = <Widget>[
     Globals.reportsScreen, 
@@ -31,7 +31,6 @@ class _BottomNavBarManagerState extends State<BottomNavBarManager> {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        backgroundColor: Colors.white,
         body: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
         ),

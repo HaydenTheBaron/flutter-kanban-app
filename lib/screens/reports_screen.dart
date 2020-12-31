@@ -5,8 +5,13 @@ class ReportsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Placeholder(color: Colors.red,),
+    return Scaffold(
+      backgroundColor: Color.fromRGBO(247, 247, 247, 1),
+      appBar: AppBar(
+        title: Text('Reports'),
+        backgroundColor: Colors.orange,
+      ),
+      body: Placeholder(color: Colors.orange,)
     );
   }
 }

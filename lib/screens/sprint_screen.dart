@@ -6,8 +6,13 @@ class SprintScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Globals.sprintScreenBoard,
+    return Scaffold(
+      backgroundColor: Color.fromRGBO(247, 247, 247, 1),
+      appBar: AppBar(
+        title: Text('Sprint'),
+        backgroundColor: Colors.red,
+      ),
+      body: Globals.sprintScreenBoard,
     );
   }
 }

@@ -6,8 +6,13 @@ class WhirlwindScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Globals.whirlwindScreenBoard,
+  return Scaffold(
+      backgroundColor: Color.fromRGBO(247, 247, 247, 1),
+      appBar: AppBar(
+        title: Text('Whirlwind'),
+        backgroundColor: Colors.blue,
+      ),
+      body: Globals.whirlwindScreenBoard,
     );
   }
 }

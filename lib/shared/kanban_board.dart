@@ -64,8 +64,8 @@ class _KanbanBoardState extends State<KanbanBoard> {
         widget._listData.removeAt(oldListIndex);
         widget._listData.insert(listIndex, list);
       },
-      headerBackgroundColor: Color.fromRGBO(230, 230, 230, 1),
-      backgroundColor: Color.fromRGBO(230, 230, 230, 1),
+      headerBackgroundColor: Color.fromRGBO(210, 210, 210, 1),
+      backgroundColor: Color.fromRGBO(210, 210, 210, 1),
       header: [
         // Header of BoardList // BKMRK
         Expanded(
