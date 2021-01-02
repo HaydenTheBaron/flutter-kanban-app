@@ -43,39 +43,7 @@ class _KanbanBoardState extends State<KanbanBoard> {
     }
 
     list.textEditingController.text = list.title;
-    return BoardList(
-      onStartDragList: (int listIndex) {},
-      onTapList: (int listIndex) async {},
-      onDropList: (int listIndex, int oldListIndex) {
-        list = widget._listData[oldListIndex];
-        widget._listData.removeAt(oldListIndex);
-        widget._listData.insert(listIndex, list);
-      },
-      headerBackgroundColor: Color.fromRGBO(210, 210, 210, 1),
-      backgroundColor: Color.fromRGBO(210, 210, 210, 1),
-      header: [
-        // Header of BoardList
-        Expanded(
-          child: Wrap(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(5),
-                child: EditableText(
-                  onSubmitted: (String newBoardListTitle) {
-                    setState(() {
-                      list.title = newBoardListTitle;
-                    });
-                  },
-                  controller: list.textEditingController,
-                  focusNode: FocusNode(),
-                  cursorColor: Colors.grey,
-                  backgroundCursorColor: Colors.yellow,
-                  style: TextStyle(fontSize: 20),
-                ),
-              ),
-              Row(
-                children: [
-                  FlatButton(
+    var flatButton = FlatButton(
                     child: Icon(
                       Icons.add,
                       color: Colors.grey,
@@ -163,7 +131,40 @@ class _KanbanBoardState extends State<KanbanBoard> {
                             );
                           });
                     },
-                  ),
+                  );
+    return BoardList(
+      onStartDragList: (int listIndex) {},
+      onTapList: (int listIndex) async {},
+      onDropList: (int listIndex, int oldListIndex) {
+        list = widget._listData[oldListIndex];
+        widget._listData.removeAt(oldListIndex);
+        widget._listData.insert(listIndex, list);
+      },
+      headerBackgroundColor: Color.fromRGBO(210, 210, 210, 1),
+      backgroundColor: Color.fromRGBO(210, 210, 210, 1),
+      header: [
+        // Header of BoardList
+        Expanded(
+          child: Wrap(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(5),
+                child: EditableText(
+                  onSubmitted: (String newBoardListTitle) {
+                    setState(() {
+                      list.title = newBoardListTitle;
+                    });
+                  },
+                  controller: list.textEditingController,
+                  focusNode: FocusNode(),
+                  cursorColor: Colors.grey,
+                  backgroundCursorColor: Colors.yellow,
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Row(
+                children: [
+                  flatButton,
                   FlatButton(
                     child: Icon(
                       Icons.delete,
